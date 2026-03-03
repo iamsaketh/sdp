@@ -37,7 +37,7 @@ def silver_sales_stream():
 #     df=spark.read.table("silver_sales_stream")
 #     df=df.groupBy("sale_year","sale_month","sale_day").agg(sum(col("revenue")).alias("revenue"))
 #     return df
-@dp.expect_or_drop("Valid Revenue", "revenue >= 0")
+@dp.expect_or_drop("Valid Revenue", "revenue >= 5000")
 @dp.table(name="gold_sales_stream")   
 def gold_sales_stream():
     df = spark.read.table("silver_sales_stream")
